@@ -5,21 +5,13 @@
     "jsx": "react-jsx",
     "strict": true,
     "moduleResolution": "bundler",
-    "skipLibCheck": true
-  },
-  "include": ["src"]
+    "skipLibCheck": true,
 
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
 
-    /* Linting */
-    "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true

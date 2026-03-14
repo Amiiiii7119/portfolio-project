@@ -4,58 +4,61 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    id: "01",
     name: "Suraksha AI",
     category: "AI Safety Detection",
     tools: "Python, YOLO, Computer Vision",
-    image: "/images/suraksha-ai.webp",
+    image: "/images/suraksha.png",
     github: "https://github.com/Amiiiii7119/Suraksha-AI",
+    demo: ""
   },
   {
+    id: "02",
     name: "DiabetesGuard AI",
     category: "Machine Learning",
-    tools: "Python, ML Models, Streamlit",
-    image: "/images/diabetesguard-ai.webp",
+    tools: "Python, Streamlit, Scikit-Learn",
+    image: "/images/diabetes.png",
     github: "https://github.com/Amiiiii7119/DiabetesGuard-AI",
-    demo: "https://diabetesguard-ai.streamlit.app/",
+    demo: "https://diabetesguard-ai.streamlit.app/"
   },
   {
+    id: "03",
     name: "Vaayu AI",
-    category: "Prediction System",
+    category: "Air Quality Prediction",
     tools: "Python, Data Analysis, ML",
-    image: "/images/vaayu-ai.webp",
-    github: "https://github.com/Amiiiii7119/Vaayu-AI-",
-    demo: "https://lvavvygbgkarvqr9fqysyu.streamlit.app/",
+    image: "/images/vaayu.png",
+    github: "https://github.com/Amiiiii7119/Vaayu-AI",
+    demo: "https://lvavvygbgkarvqr9fqysyu.streamlit.app/"
   },
   {
+    id: "04",
     name: "Hostel Hive",
-    category: "Web Application",
-    tools: "React, Node, Database",
-    image: "/images/hostel-hive.webp",
+    category: "Full Stack Web Application",
+    tools: "React, Node.js, MongoDB",
+    image: "/images/hostel.png",
     github: "https://github.com/Amiiiii7119/Hostel_Hive",
-    demo: "https://hostel-hive-five.vercel.app/",
-  },
+    demo: "https://hostel-hive-five.vercel.app/"
+  }
 ];
 
 const Work = () => {
   useGSAP(() => {
-    let translateX = 0;
+    let translateX: number = 0;
 
     function setTranslateX() {
       const box = document.getElementsByClassName("work-box");
-      const workContainer = document.querySelector(".work-container");
-      if (!workContainer || !box[0] || !box[0].parentElement) {
-        return;
-      }
-      const rectLeft = workContainer.getBoundingClientRect().left;
+      const rectLeft = document
+        .querySelector(".work-container")!
+        .getBoundingClientRect().left;
 
       const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement.getBoundingClientRect().width;
+      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
 
-      let padding =
+      let padding: number =
         parseInt(window.getComputedStyle(box[0]).padding) / 2;
 
       translateX =
@@ -87,15 +90,15 @@ const Work = () => {
     <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
-          My <span>Projects</span>
+          My <span>Work</span>
         </h2>
 
         <div className="work-flex">
-          {projects.map((project, index) => (
-            <div className="work-box" key={index}>
+          {projects.map((project) => (
+            <div className="work-box" key={project.id}>
               <div className="work-info">
                 <div className="work-title">
-                  <h3>0{index + 1}</h3>
+                  <h3>{project.id}</h3>
 
                   <div>
                     <h4>{project.name}</h4>

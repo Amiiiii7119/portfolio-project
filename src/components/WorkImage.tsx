@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MdArrowOutward } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 
 interface Props {
   image: string;
@@ -30,33 +31,25 @@ const WorkImage = (props: Props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={() => setIsVideo(false)}
       >
-        <div className="work-links">
+        <img src={props.image} alt={props.alt} />
+
+        {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
+
+        <div style={{ position: "absolute", bottom: "20px", right: "20px", display: "flex", gap: "10px" }}>
+          
           {props.github && (
-            <a
-              href={props.github}
-              target="_blank"
-              data-cursor="disable"
-              className="work-link"
-            >
-              GitHub <MdArrowOutward />
+            <a href={props.github} target="_blank">
+              <FaGithub size={22} />
             </a>
           )}
 
           {props.demo && (
-            <a
-              href={props.demo}
-              target="_blank"
-              data-cursor="disable"
-              className="work-link"
-            >
-              Live Demo <MdArrowOutward />
+            <a href={props.demo} target="_blank">
+              <MdArrowOutward size={22} />
             </a>
           )}
+
         </div>
-
-        <img src={props.image} alt={props.alt} />
-
-        {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
       </div>
     </div>
   );
